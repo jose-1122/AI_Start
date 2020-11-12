@@ -4,7 +4,7 @@
   * https://jose-1122.github.io/AI_Start/
 
 ### Python drill
-  * 
+  * 가위바위보 게임 - [LINK](https://jose-1122.github.io/AI_Start/RockPaperScissors)
 
 ### 시각화 프로젝트
   * tips 데이터 분석 - [LINK](https://jose-1122.github.io/AI_Start/FirstStep_DataVis01.html)
