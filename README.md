@@ -1,4 +1,4 @@
-# AI
+# Artificial Intelligence
 
 ### Page
   * https://jose-1122.github.io/AI_Start/
