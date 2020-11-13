@@ -1,10 +1,11 @@
-# Artificial Intelligence
+# 인공지능(Artificial Intelligence)
 
-### Page
+### 페이지
   * https://jose-1122.github.io/AI_Start/
 
-### Python drill
-  * 가위바위보 게임 - [LINK](https://jose-1122.github.io/AI_Start/RockPaperScissors.ipynb)
+### 파이썬 연습
+  * 별모양 그리기 - [LINK](https://jose-1122.github.io/AI_Start/별모양 그리기.html)
+  * 가위바위보 게임 - [LINK](https://jose-1122.github.io/AI_Start/RockPaperScissors.html)
 
 ### 시각화 프로젝트
   * tips 데이터 분석 - [LINK](https://jose-1122.github.io/AI_Start/FirstStep_DataVis01.html)
