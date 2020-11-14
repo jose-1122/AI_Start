@@ -7,7 +7,7 @@
   * 별모양 - [LINK](https://jose-1122.github.io/AI_Start/Patterns_of_Stars.html)
   * 가위바위보 게임 - [LINK](https://jose-1122.github.io/AI_Start/RockPaperScissors)
   * 삼각함수 - [LINK](https://jose-1122.github.io/AI_Start/Sin_Cos_Tan_Func.html)
-  * GUI 프로그래밍 with tkinter - [LINK](https://jose-1122.github.io/AI_Start/Path_planning_with_tkinter)
+  * GUI 프로그래밍 with tkinter - [LINK](https://jose-1122.github.io/AI_Start/)
   
   
 ### 시각화 프로젝트
