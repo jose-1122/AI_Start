@@ -10,8 +10,8 @@
   
   
 ### 시각화 프로젝트
+  * car_crashes 데이터 분석 - [LINK](https://jose-1122.github.io/AI_Start/Data_Vis_01.html)
   * tips 데이터 분석 - [LINK](https://jose-1122.github.io/AI_Start/FirstStep_DataVis01.html)
-  
   
   
   
