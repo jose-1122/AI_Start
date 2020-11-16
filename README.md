@@ -8,7 +8,7 @@
   * 가위바위보 게임 - [LINK](https://jose-1122.github.io/AI_Start/RockPaperScissors)
   * 삼각함수 - [LINK](https://jose-1122.github.io/AI_Start/Sin_Cos_Tan_Func.html)
   * GUI 프로그래밍 with tkinter - [LINK](https://jose-1122.github.io/AI_Start/GUI_Programming_tkinter)
-  * 주소록 - [LINK](https://jose-1122.github.io/AI_Start/Contacts)
+  
   * 단일연결리스트 - [LINK](https://jose-1122.github.io/AI_Start/Singly_Linked_List)
   
   
