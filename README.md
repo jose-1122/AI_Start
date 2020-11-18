@@ -1,9 +1,11 @@
-# 인공지능(Artificial Intelligence)
+# [ 인공지능 ] [ Artificial Intelligence ]
 
-### 페이지
+## 내 페이지
   * https://jose-1122.github.io/AI_Start/
 
-### 파이썬
+## 파이썬
+
+### [ 코딩 ]
   * 별찍기 - [LINK](https://jose-1122.github.io/AI_Start/Patterns_of_Stars.html)
   * 가위바위보 게임 - [LINK](https://jose-1122.github.io/AI_Start/RockPaperScissors.html)
   * 삼각함수 - [LINK](https://jose-1122.github.io/AI_Start/Sin_Cos_Tan_Func.html)
@@ -13,10 +15,12 @@
   * 단일연결리스트 기반 스택 - [LINK](https://jose-1122.github.io/AI_Start/)
   * 단일연결리스트 기반 큐 - [LINK](https://jose-1122.github.io/AI_Start/)
   
-### 시각화
+### [ 시각화 ] (matplotlib, seaborn, plotly, folium)
   * "car_crashes" 데이터 분석 - [LINK](https://jose-1122.github.io/AI_Start/Data_Vis_01.html)
   * "tips" 데이터 분석 - [LINK](https://jose-1122.github.io/AI_Start/FirstStep_DataVis01.html)
+
+### [ 데이터수집 ] (pandas)
+
+### [ 머신러닝 ] (scikit-learn)
   
-### 머신러닝
-  
-### 딥러닝
+### [ 딥러닝 ] (keras, pytorch, tensorflow)
