@@ -1,5 +1,9 @@
 # [ 인공지능 ] [ Artificial Intelligence ]
 
+
+
+
+
 ## 내 페이지
   * https://jose-1122.github.io/AI_Start/
 
