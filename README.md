@@ -9,7 +9,7 @@
   * 삼각함수 - [LINK](https://jose-1122.github.io/AI_Start/Sin_Cos_Tan_Func.html)
   * GUI 프로그래밍 with tkinter - [LINK](https://jose-1122.github.io/AI_Start/GUI_Programming_tkinter.html)
   * 주소록 - [LINK](https://jose-1122.github.io/AI_Start/Contact.html)
-## 
+## 알고리즘
   
   
 ### 시각화 프로젝트
