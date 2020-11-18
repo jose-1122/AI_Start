@@ -3,8 +3,8 @@
 ## https://jose-1122.github.io/AI_Start/
 
 ### [ Drill ]
-* Singly linked list - [LINK](https://jose-1122.github.io/AI_Start/)
- * A stack using singly linked list - [LINK](https://jose-1122.github.io/AI_Start/)
+  * [LINK](https://jose-1122.github.io/AI_Start/) - Singly linked list
+  * A stack using singly linked list - [LINK](https://jose-1122.github.io/AI_Start/)
   * A queue using singly linked list - [LINK](https://jose-1122.github.io/AI_Start/)
   * Contacts - [LINK](https://jose-1122.github.io/AI_Start/Contact.html)
   * Tkinter - [LINK](https://jose-1122.github.io/AI_Start/GUI_Programming_tkinter.html)
