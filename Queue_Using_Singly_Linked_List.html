@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>Data_Vis_01</title>
+<title>Queue_Using_Singly_Linked_List</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13076,17 +13076,135 @@ div#notebook {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#https://github.com/mwaskom/seaborn-data</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">###   Node 클래스   ###</span>
+<span class="k">class</span> <span class="nc">Node</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="nb">next</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="nb">next</span>
+        
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;(</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>           <span class="c1"># return &quot;(%s)&quot; % self.data 와 같음. The queue : (a) 로 출력.</span>
+        <span class="c1">#return &quot;({})&quot;.format(repr(self.data))      # return &quot;(%s)&quot; % repr(self.data) 와 같음. The queue : (&#39;a&#39;) 로 출력.</span>
 
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 
-<span class="n">car_crashes</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;car_crashes&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">car_crashes</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;type(car_crashes) : &quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">car_crashes</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;car_crashes.shape : &quot;</span><span class="p">,</span> <span class="n">car_crashes</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="c1">###   QueueUsingSinglyLinkedList (단일 연결 리스트 기반 큐) 클래스   ###</span>
+<span class="k">class</span> <span class="nc">QueueUsingSinglyLinkedList</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="kc">None</span>                           <span class="c1"># head node 존재.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node_counter</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">enqueue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>                       <span class="c1"># enqueue(data) method 존재. 즉 큐의 앞쪽(head)에 노드 추가.</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">노드 </span><span class="si">%s</span><span class="s2"> 추가(enqueue)&quot;</span> <span class="o">%</span><span class="k">str</span>(data))
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">new_node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+            <span class="n">new_node</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">new_node</span>
+            <span class="c1">#del new_node</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node_counter</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">def</span> <span class="nf">dequeue</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>                             <span class="c1"># dequeue() method 존재. 즉 큐의 뒤쪽(tail)에 노드 반환 및 삭제.</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;가장 뒤 노드 삭제(dequeue)&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The queue is empty, so cannot dequeue.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">prev_node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span>
+            <span class="n">cursor</span> <span class="o">=</span> <span class="n">prev_node</span><span class="o">.</span><span class="n">next</span>
+            <span class="k">if</span> <span class="n">cursor</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">while</span> <span class="n">cursor</span><span class="o">.</span><span class="n">next</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">prev_node</span> <span class="o">=</span> <span class="n">cursor</span>
+                    <span class="n">cursor</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">next</span>
+                <span class="n">prev_node</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">next</span>
+            <span class="c1">#del prev_node</span>
+            <span class="c1">#del cursor</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">node_counter</span> <span class="o">-=</span> <span class="mi">1</span>
+
+    <span class="k">def</span> <span class="nf">peek</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>                                <span class="c1"># peek() method 존재. 즉 큐의 가장 앞쪽(head) 노드 확인. 삭제 X.</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="o">.</span><span class="n">data</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="nf">print_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>                          <span class="c1"># print_list() method 존재. 방법 1). 즉 stack 의 가장 위에 node 부터 순차적으로 출력.</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The queue : &quot;</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="k">while</span> <span class="n">cursor</span><span class="o">.</span><span class="n">next</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; - </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">cursor</span><span class="o">.</span><span class="n">next</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+                <span class="n">cursor</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">next</span>
+        <span class="c1">#del cursor</span>
+    
+    <span class="k">def</span> <span class="nf">length</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>                                     <span class="c1"># length() method 존재. 즉 queue 에 있는 node 가 총 몇 개인지를 반환.</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">node_counter</span>
+    
+    <span class="k">def</span> <span class="nf">isEmpty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>                                    <span class="c1"># isEmpty() method 존재. 즉 queue 가 비어있으면 True 를, 비어있지 않으면 False 를 반환.</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span> 
+            <span class="k">return</span> <span class="kc">False</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">Queue</span> <span class="o">=</span> <span class="n">QueueUsingSinglyLinkedList</span><span class="p">()</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The queue&#39;s length :&quot;</span><span class="p">,</span> <span class="n">Queue</span><span class="o">.</span><span class="n">length</span><span class="p">(),</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">Queue</span><span class="o">.</span><span class="n">print_list</span><span class="p">()</span>
+    
+    <span class="n">Queue</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The queue&#39;s length :&quot;</span><span class="p">,</span> <span class="n">Queue</span><span class="o">.</span><span class="n">length</span><span class="p">(),</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">Queue</span><span class="o">.</span><span class="n">print_list</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">The queue&#39;s top element is&quot;</span><span class="p">,</span> <span class="n">Queue</span><span class="o">.</span><span class="n">peek</span><span class="p">())</span>
+    
+    <span class="n">Queue</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The queue&#39;s length :&quot;</span><span class="p">,</span> <span class="n">Queue</span><span class="o">.</span><span class="n">length</span><span class="p">(),</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">Queue</span><span class="o">.</span><span class="n">print_list</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">The queue&#39;s top element is&quot;</span><span class="p">,</span> <span class="n">Queue</span><span class="o">.</span><span class="n">peek</span><span class="p">())</span>
+    
+    <span class="n">Queue</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The queue&#39;s length :&quot;</span><span class="p">,</span> <span class="n">Queue</span><span class="o">.</span><span class="n">length</span><span class="p">(),</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">Queue</span><span class="o">.</span><span class="n">print_list</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">The queue&#39;s top element is&quot;</span><span class="p">,</span> <span class="n">Queue</span><span class="o">.</span><span class="n">peek</span><span class="p">())</span>
+    
+    <span class="n">Queue</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="s2">&quot;^&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The queue&#39;s length :&quot;</span><span class="p">,</span> <span class="n">Queue</span><span class="o">.</span><span class="n">length</span><span class="p">(),</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">Queue</span><span class="o">.</span><span class="n">print_list</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">The queue&#39;s top element is&quot;</span><span class="p">,</span> <span class="n">Queue</span><span class="o">.</span><span class="n">peek</span><span class="p">())</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">The queue is empty ?&quot;</span><span class="p">,</span> <span class="n">Queue</span><span class="o">.</span><span class="n">isEmpty</span><span class="p">())</span>
+    <span class="n">Queue</span><span class="o">.</span><span class="n">dequeue</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The queue&#39;s length :&quot;</span><span class="p">,</span> <span class="n">Queue</span><span class="o">.</span><span class="n">length</span><span class="p">(),</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">Queue</span><span class="o">.</span><span class="n">print_list</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">The queue&#39;s top element is&quot;</span><span class="p">,</span> <span class="n">Queue</span><span class="o">.</span><span class="n">peek</span><span class="p">())</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">The queue is empty ?&quot;</span><span class="p">,</span> <span class="n">Queue</span><span class="o">.</span><span class="n">isEmpty</span><span class="p">())</span>
+    <span class="n">Queue</span><span class="o">.</span><span class="n">dequeue</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The queue&#39;s length :&quot;</span><span class="p">,</span> <span class="n">Queue</span><span class="o">.</span><span class="n">length</span><span class="p">(),</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">Queue</span><span class="o">.</span><span class="n">print_list</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">The queue&#39;s top element is&quot;</span><span class="p">,</span> <span class="n">Queue</span><span class="o">.</span><span class="n">peek</span><span class="p">())</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">The queue is empty ?&quot;</span><span class="p">,</span> <span class="n">Queue</span><span class="o">.</span><span class="n">isEmpty</span><span class="p">())</span>
+    <span class="n">Queue</span><span class="o">.</span><span class="n">dequeue</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The queue&#39;s length :&quot;</span><span class="p">,</span> <span class="n">Queue</span><span class="o">.</span><span class="n">length</span><span class="p">(),</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">Queue</span><span class="o">.</span><span class="n">print_list</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">The queue&#39;s top element is&quot;</span><span class="p">,</span> <span class="n">Queue</span><span class="o">.</span><span class="n">peek</span><span class="p">())</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">The queue is empty ?&quot;</span><span class="p">,</span> <span class="n">Queue</span><span class="o">.</span><span class="n">isEmpty</span><span class="p">())</span>
+    <span class="n">Queue</span><span class="o">.</span><span class="n">dequeue</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The queue&#39;s length :&quot;</span><span class="p">,</span> <span class="n">Queue</span><span class="o">.</span><span class="n">length</span><span class="p">(),</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">Queue</span><span class="o">.</span><span class="n">print_list</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The queue&#39;s top element is&quot;</span><span class="p">,</span> <span class="n">Queue</span><span class="o">.</span><span class="n">peek</span><span class="p">())</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">The queue is empty ?&quot;</span><span class="p">,</span> <span class="n">Queue</span><span class="o">.</span><span class="n">isEmpty</span><span class="p">())</span>
+    <span class="n">Queue</span><span class="o">.</span><span class="n">dequeue</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13103,716 +13221,65 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>    total  speeding  alcohol  not_distracted  no_previous  ins_premium  \
-0    18.8     7.332    5.640          18.048       15.040       784.55   
-1    18.1     7.421    4.525          16.290       17.014      1053.48   
-2    18.6     6.510    5.208          15.624       17.856       899.47   
-3    22.4     4.032    5.824          21.056       21.280       827.34   
-4    12.0     4.200    3.360          10.920       10.680       878.41   
-5    13.6     5.032    3.808          10.744       12.920       835.50   
-6    10.8     4.968    3.888           9.396        8.856      1068.73   
-7    16.2     6.156    4.860          14.094       16.038      1137.87   
-8     5.9     2.006    1.593           5.900        5.900      1273.89   
-9    17.9     3.759    5.191          16.468       16.826      1160.13   
-10   15.6     2.964    3.900          14.820       14.508       913.15   
-11   17.5     9.450    7.175          14.350       15.225       861.18   
-12   15.3     5.508    4.437          13.005       14.994       641.96   
-13   12.8     4.608    4.352          12.032       12.288       803.11   
-14   14.5     3.625    4.205          13.775       13.775       710.46   
-15   15.7     2.669    3.925          15.229       13.659       649.06   
-16   17.8     4.806    4.272          13.706       15.130       780.45   
-17   21.4     4.066    4.922          16.692       16.264       872.51   
-18   20.5     7.175    6.765          14.965       20.090      1281.55   
-19   15.1     5.738    4.530          13.137       12.684       661.88   
-20   12.5     4.250    4.000           8.875       12.375      1048.78   
-21    8.2     1.886    2.870           7.134        6.560      1011.14   
-22   14.1     3.384    3.948          13.395       10.857      1110.61   
-23    9.6     2.208    2.784           8.448        8.448       777.18   
-24   17.6     2.640    5.456           1.760       17.600       896.07   
-25   16.1     6.923    5.474          14.812       13.524       790.32   
-26   21.4     8.346    9.416          17.976       18.190       816.21   
-27   14.9     1.937    5.215          13.857       13.410       732.28   
-28   14.7     5.439    4.704          13.965       14.553      1029.87   
-29   11.6     4.060    3.480          10.092        9.628       746.54   
-30   11.2     1.792    3.136           9.632        8.736      1301.52   
-31   18.4     3.496    4.968          12.328       18.032       869.85   
-32   12.3     3.936    3.567          10.824        9.840      1234.31   
-33   16.8     6.552    5.208          15.792       13.608       708.24   
-34   23.9     5.497   10.038          23.661       20.554       688.75   
-35   14.1     3.948    4.794          13.959       11.562       697.73   
-36   19.9     6.368    5.771          18.308       18.706       881.51   
-37   12.8     4.224    3.328           8.576       11.520       804.71   
-38   18.2     9.100    5.642          17.472       16.016       905.99   
-39   11.1     3.774    4.218          10.212        8.769      1148.99   
-40   23.9     9.082    9.799          22.944       19.359       858.97   
-41   19.4     6.014    6.402          19.012       16.684       669.31   
-42   19.5     4.095    5.655          15.990       15.795       767.91   
-43   19.4     7.760    7.372          17.654       16.878      1004.75   
-44   11.3     4.859    1.808           9.944       10.848       809.38   
-45   13.6     4.080    4.080          13.056       12.920       716.20   
-46   12.7     2.413    3.429          11.049       11.176       768.95   
-47   10.6     4.452    3.498           8.692        9.116       890.03   
-48   23.8     8.092    6.664          23.086       20.706       992.61   
-49   13.8     4.968    4.554           5.382       11.592       670.31   
-50   17.4     7.308    5.568          14.094       15.660       791.14   
+<pre>The queue&#39;s length : 0
+The queue : 
 
-    ins_losses abbrev  
-0       145.08     AL  
-1       133.93     AK  
-2       110.35     AZ  
-3       142.39     AR  
-4       165.63     CA  
-5       139.91     CO  
-6       167.02     CT  
-7       151.48     DE  
-8       136.05     DC  
-9       144.18     FL  
-10      142.80     GA  
-11      120.92     HI  
-12       82.75     ID  
-13      139.15     IL  
-14      108.92     IN  
-15      114.47     IA  
-16      133.80     KS  
-17      137.13     KY  
-18      194.78     LA  
-19       96.57     ME  
-20      192.70     MD  
-21      135.63     MA  
-22      152.26     MI  
-23      133.35     MN  
-24      155.77     MS  
-25      144.45     MO  
-26       85.15     MT  
-27      114.82     NE  
-28      138.71     NV  
-29      120.21     NH  
-30      159.85     NJ  
-31      120.75     NM  
-32      150.01     NY  
-33      127.82     NC  
-34      109.72     ND  
-35      133.52     OH  
-36      178.86     OK  
-37      104.61     OR  
-38      153.86     PA  
-39      148.58     RI  
-40      116.29     SC  
-41       96.87     SD  
-42      155.57     TN  
-43      156.83     TX  
-44      109.48     UT  
-45      109.61     VT  
-46      153.72     VA  
-47      111.62     WA  
-48      152.56     WV  
-49      106.62     WI  
-50      122.04     WY   
+노드 1 추가(enqueue)
+The queue&#39;s length : 1
+The queue : (1)
+The queue&#39;s top element is 1
 
-type(car_crashes) :  &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt; 
+노드 4 추가(enqueue)
+The queue&#39;s length : 2
+The queue : (4) - (1)
+The queue&#39;s top element is 4
 
-car_crashes.shape :  (51, 8)
+노드 a 추가(enqueue)
+The queue&#39;s length : 3
+The queue : (a) - (4) - (1)
+The queue&#39;s top element is a
+
+노드 ^ 추가(enqueue)
+The queue&#39;s length : 4
+The queue : (^) - (a) - (4) - (1)
+The queue&#39;s top element is ^
+
+
+The queue is empty ? False
+가장 뒤 노드 삭제(dequeue)
+The queue&#39;s length : 3
+The queue : (^) - (a) - (4)
+The queue&#39;s top element is ^
+
+
+The queue is empty ? False
+가장 뒤 노드 삭제(dequeue)
+The queue&#39;s length : 2
+The queue : (^) - (a)
+The queue&#39;s top element is ^
+
+
+The queue is empty ? False
+가장 뒤 노드 삭제(dequeue)
+The queue&#39;s length : 1
+The queue : (^)
+The queue&#39;s top element is ^
+
+
+The queue is empty ? False
+가장 뒤 노드 삭제(dequeue)
+The queue&#39;s length : 0
+The queue : 
+The queue&#39;s top element is 
+
+
+The queue is empty ? True
+가장 뒤 노드 삭제(dequeue)
+The queue is empty, so cannot dequeue.
 </pre>
 </div>
 </div>
 
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">car_crashes</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 51 entries, 0 to 50
-Data columns (total 8 columns):
- #   Column          Non-Null Count  Dtype  
----  ------          --------------  -----  
- 0   total           51 non-null     float64
- 1   speeding        51 non-null     float64
- 2   alcohol         51 non-null     float64
- 3   not_distracted  51 non-null     float64
- 4   no_previous     51 non-null     float64
- 5   ins_premium     51 non-null     float64
- 6   ins_losses      51 non-null     float64
- 7   abbrev          51 non-null     object 
-dtypes: float64(7), object(1)
-memory usage: 3.3+ KB
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 앞의 데이터만 살펴보기</span>
-<span class="n">car_crashes</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1"># 괄호 안에 숫자만큼 출력. Default == 5</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[23]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>total</th>
-      <th>speeding</th>
-      <th>alcohol</th>
-      <th>not_distracted</th>
-      <th>no_previous</th>
-      <th>ins_premium</th>
-      <th>ins_losses</th>
-      <th>abbrev</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>18.8</td>
-      <td>7.332</td>
-      <td>5.640</td>
-      <td>18.048</td>
-      <td>15.040</td>
-      <td>784.55</td>
-      <td>145.08</td>
-      <td>AL</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>18.1</td>
-      <td>7.421</td>
-      <td>4.525</td>
-      <td>16.290</td>
-      <td>17.014</td>
-      <td>1053.48</td>
-      <td>133.93</td>
-      <td>AK</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>18.6</td>
-      <td>6.510</td>
-      <td>5.208</td>
-      <td>15.624</td>
-      <td>17.856</td>
-      <td>899.47</td>
-      <td>110.35</td>
-      <td>AZ</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>22.4</td>
-      <td>4.032</td>
-      <td>5.824</td>
-      <td>21.056</td>
-      <td>21.280</td>
-      <td>827.34</td>
-      <td>142.39</td>
-      <td>AR</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>12.0</td>
-      <td>4.200</td>
-      <td>3.360</td>
-      <td>10.920</td>
-      <td>10.680</td>
-      <td>878.41</td>
-      <td>165.63</td>
-      <td>CA</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 뒤의 데이터만 살펴보기</span>
-<span class="n">car_crashes</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span> <span class="c1"># 괄호 안에 숫자만큼 출력. Default == 5</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[24]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>total</th>
-      <th>speeding</th>
-      <th>alcohol</th>
-      <th>not_distracted</th>
-      <th>no_previous</th>
-      <th>ins_premium</th>
-      <th>ins_losses</th>
-      <th>abbrev</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>46</th>
-      <td>12.7</td>
-      <td>2.413</td>
-      <td>3.429</td>
-      <td>11.049</td>
-      <td>11.176</td>
-      <td>768.95</td>
-      <td>153.72</td>
-      <td>VA</td>
-    </tr>
-    <tr>
-      <th>47</th>
-      <td>10.6</td>
-      <td>4.452</td>
-      <td>3.498</td>
-      <td>8.692</td>
-      <td>9.116</td>
-      <td>890.03</td>
-      <td>111.62</td>
-      <td>WA</td>
-    </tr>
-    <tr>
-      <th>48</th>
-      <td>23.8</td>
-      <td>8.092</td>
-      <td>6.664</td>
-      <td>23.086</td>
-      <td>20.706</td>
-      <td>992.61</td>
-      <td>152.56</td>
-      <td>WV</td>
-    </tr>
-    <tr>
-      <th>49</th>
-      <td>13.8</td>
-      <td>4.968</td>
-      <td>4.554</td>
-      <td>5.382</td>
-      <td>11.592</td>
-      <td>670.31</td>
-      <td>106.62</td>
-      <td>WI</td>
-    </tr>
-    <tr>
-      <th>50</th>
-      <td>17.4</td>
-      <td>7.308</td>
-      <td>5.568</td>
-      <td>14.094</td>
-      <td>15.660</td>
-      <td>791.14</td>
-      <td>122.04</td>
-      <td>WY</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">car_crashes</span><span class="o">.</span><span class="n">columns</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[29]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>Index([&#39;total&#39;, &#39;speeding&#39;, &#39;alcohol&#39;, &#39;not_distracted&#39;, &#39;no_previous&#39;,
-       &#39;ins_premium&#39;, &#39;ins_losses&#39;, &#39;abbrev&#39;],
-      dtype=&#39;object&#39;)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">car_crashes</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[30]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>total</th>
-      <th>speeding</th>
-      <th>alcohol</th>
-      <th>not_distracted</th>
-      <th>no_previous</th>
-      <th>ins_premium</th>
-      <th>ins_losses</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>51.000000</td>
-      <td>51.000000</td>
-      <td>51.000000</td>
-      <td>51.000000</td>
-      <td>51.000000</td>
-      <td>51.000000</td>
-      <td>51.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>15.790196</td>
-      <td>4.998196</td>
-      <td>4.886784</td>
-      <td>13.573176</td>
-      <td>14.004882</td>
-      <td>886.957647</td>
-      <td>134.493137</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>4.122002</td>
-      <td>2.017747</td>
-      <td>1.729133</td>
-      <td>4.508977</td>
-      <td>3.764672</td>
-      <td>178.296285</td>
-      <td>24.835922</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>5.900000</td>
-      <td>1.792000</td>
-      <td>1.593000</td>
-      <td>1.760000</td>
-      <td>5.900000</td>
-      <td>641.960000</td>
-      <td>82.750000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>12.750000</td>
-      <td>3.766500</td>
-      <td>3.894000</td>
-      <td>10.478000</td>
-      <td>11.348000</td>
-      <td>768.430000</td>
-      <td>114.645000</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>15.600000</td>
-      <td>4.608000</td>
-      <td>4.554000</td>
-      <td>13.857000</td>
-      <td>13.775000</td>
-      <td>858.970000</td>
-      <td>136.050000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>18.500000</td>
-      <td>6.439000</td>
-      <td>5.604000</td>
-      <td>16.140000</td>
-      <td>16.755000</td>
-      <td>1007.945000</td>
-      <td>151.870000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>23.900000</td>
-      <td>9.450000</td>
-      <td>10.038000</td>
-      <td>23.661000</td>
-      <td>21.280000</td>
-      <td>1301.520000</td>
-      <td>194.780000</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">car_crashes</span><span class="o">.</span><span class="n">speeding</span><span class="p">)</span> <span class="c1">#plt.hist(dataset, range = (최소값, 최대값), bins = 구간 개수), bin&#39; default == 10 </span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[32]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>(array([ 6.,  3., 11.,  7.,  7.,  4.,  3.,  5.,  2.,  3.]),
- array([1.792 , 2.5578, 3.3236, 4.0894, 4.8552, 5.621 , 6.3868, 7.1526,
-        7.9184, 8.6842, 9.45  ]),
- &lt;a list of 10 Patch objects&gt;)</pre>
-</div>
-
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-<div class="output_png output_subarea ">
-<img src="data:image/png;base64,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
-"
->
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[110]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># (그래프 전체 크기를) 가로 6등분 * 세로 1등분으로 subplot 을 잡은 것 중 1번째.</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">car_crashes</span><span class="o">.</span><span class="n">total</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># (그래프 전체 크기를) 가로 6등분 * 세로 2등분으로 subplot 을 잡은 것 중 3번째.</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">car_crashes</span><span class="o">.</span><span class="n">speeding</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="c1"># (그래프 전체 크기를) 가로 6등분 * 세로 2등분으로 subplot 을 잡은 것 중 4번째.</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">car_crashes</span><span class="o">.</span><span class="n">alcohol</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># (그래프 전체 크기를) 가로 6등분 * 세로 1등분으로 subplot 을 잡은 것 중 3번째.</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">car_crashes</span><span class="o">.</span><span class="n">not_distracted</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="c1"># (그래프 전체 크기를) 가로 6등분 * 세로 1등분으로 subplot 을 잡은 것 중 4번째.</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">car_crashes</span><span class="o">.</span><span class="n">no_previous</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="c1"># (그래프 전체 크기를) 가로 6등분 * 세로 1등분으로 subplot 을 잡은 것 중 5번째.</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">car_crashes</span><span class="o">.</span><span class="n">ins_premium</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="c1"># (그래프 전체 크기를) 가로 6등분 * 세로 1등분으로 subplot 을 잡은 것 중 6번째.</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">car_crashes</span><span class="o">.</span><span class="n">ins_losses</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[110]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>(array([ 2.,  3., 10.,  4.,  9.,  8., 10.,  2.,  1.,  2.]),
- array([ 82.75 ,  93.953, 105.156, 116.359, 127.562, 138.765, 149.968,
-        161.171, 172.374, 183.577, 194.78 ]),
- &lt;a list of 10 Patch objects&gt;)</pre>
-</div>
-
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-<div class="output_png output_subarea ">
-<img src="data:image/png;base64,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
-"
->
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
 </div>
 </div>
 
