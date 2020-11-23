@@ -12,7 +12,7 @@
   * [LINK](https://jose-1122.github.io/AI_Start/Patterns_of_Stars.html) - For
     
 ### [ Visualization - Matplotlib, Seaborn, Plotly, Folium ]
-  * [LINK](https://jose-1122.github.io/AI_Start/Sin_Cos_Tan.html) - Sin Cos Tan with Matplotlib and Seaborn
+  * [LINK](https://jose-1122.github.io/AI_Start/Sin_Cos_Tan.html) - Sin Cos Tan (with Matplotlib and Seaborn)
 
 ### [ ML - Scikit-learn, Pandas ]
   
