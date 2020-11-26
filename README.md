@@ -12,7 +12,7 @@
   * [LINK](https://jose-1122.github.io/AI_Start/Patterns_of_Stars.html) - For
     
 ### [ Visualization - Matplotlib, Seaborn, Plotly, Folium ]
-  * [PDF](https://jose-1122.github.io/AI_Start/plotly) - 타이타닉 생존자 데이터 분석 (with Plotly) datasets : https://www.kaggle.com/c/titanic/data
+  * [PDF](plotly) - 타이타닉 생존자 데이터 분석 (Datasets : https://www.kaggle.com/c/titanic/data) (with Plotly)
   * [LINK](https://jose-1122.github.io/AI_Start/penguins) - Seaborn 의 내장 데이터인 penguins 데이터 확인 & csv, excel 파일로 만들기 (with Seaborn)
   * [LINK](https://jose-1122.github.io/AI_Start/Sin_Cos_Tan.html) - 사인, 코사인, 탄젠트 그래프 그리기 (with Matplotlib and Seaborn)
   
