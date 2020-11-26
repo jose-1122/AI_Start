@@ -4,7 +4,7 @@
     
 ### [ Visualization - Matplotlib, Seaborn, Plotly, Folium ]
   * [PDF](https://jose-1122.github.io/AI_Start/plotly.pdf) - [수정 필요] 타이타닉 생존자 데이터 분석 (Datasets : https://www.kaggle.com/c/titanic/data) (with Plotly)
-  * [LINK](https://jose-1122.github.io/AI_Start/Manchester_folium_html.html) - 영국 맨체스터 단기 어학연수 중 자주 방문했었던 대표적인 장소 시각화 1 (with Folium)
+  * [LINK](https://jose-1122.github.io/AI_Start/.html) - 영국 맨체스터 단기 어학연수 중 자주 방문했었던 대표적인 장소 시각화 1 (with Folium)
   * [LINK](https://jose-1122.github.io/AI_Start/Manchester_folium.html) - 영국 맨체스터 단기 어학연수 중 자주 방문했었던 대표적인 장소 시각화 2 (with Folium)
   * [LINK](https://jose-1122.github.io/AI_Start/penguins.html) - Seaborn 의 내장 데이터인 penguins 데이터 확인 & csv, excel 파일로 만들기 (with Seaborn)
   * [LINK](https://jose-1122.github.io/AI_Start/Sin_Cos_Tan.html) - 사인, 코사인, 탄젠트 그래프 그리기 (with Matplotlib and Seaborn)
