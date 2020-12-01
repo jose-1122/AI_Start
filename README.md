@@ -15,7 +15,7 @@
 ### [ DL - Keras, Pytorch, Tensorflow, Numpy ]
 
 ### [ Python - Drill ]
-  * [LINK](https://jose-1122.github.io/AI_Start/current_affairs.html) - [ 한국 경제신문_생글생글 ] [ 시사 이슈 찬반토론 ] 정보 가져오기 (with Selenium & BeautifulSoup)
+  * 
   * [LINK](https://jose-1122.github.io/AI_Start/Singly_Linked_List.html) - Singly linked list
   * [LINK](https://jose-1122.github.io/AI_Start/Stack_Using_Singly_Linked_List.html) - A stack using singly linked list
   * [LINK](https://jose-1122.github.io/AI_Start/Queue_Using_Singly_Linked_List.html) - A queue using singly linked list
