@@ -10,7 +10,7 @@
   * [LINK](https://jose-1122.github.io/AI_Start/Sin_Cos_Tan.html) - 사인, 코사인, 탄젠트 그래프 그리기 (with Matplotlib & Seaborn)
   
 ### [ ML - Scikit-learn, Pandas ]
-  * [LINK](https://jose-1122.github.io/AI_Start/The_number_of_people_engaged_in_aviation_business_for_each_international_airways.html) - "세계항공종사자.csv", "서울시 중랑구 연령별 인구수.xlsx" 데이터 확인 (공공데이터포털) (with Pandas)
+  * [LINK](https://jose-1122.github.io/AI_Start/The_number_of_people_engaged_in_aviation_business_for_each_international_airways.html) - "세계항공종사자.csv", "서울시 중랑구 연령별 인구수.xlsx" 데이터 확인 (dataset 공공데이터포털) (with Pandas)
   
 ### [ DL - Keras, Pytorch, Tensorflow, Numpy ]
 
