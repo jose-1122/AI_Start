@@ -24,3 +24,6 @@
   * [LINK](https://jose-1122.github.io/AI_Start/GUI_Programming_tkinter.html) - Tkinter
   * [LINK](https://jose-1122.github.io/AI_Start/RPS_Game.html) - Rock Paper Scissors
   * [LINK](https://jose-1122.github.io/AI_Start/Patterns_of_Stars.html) - for
+  
+### [ Kaggle - Project ]
+  * [LINK](https://jose-1122.github.io/AI_Start/Predict Future Sales.html) - ]Predict Future Sales] Final project for "How to win a data science competition" Coursera course (dataset-캐글)
