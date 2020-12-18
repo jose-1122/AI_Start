@@ -26,4 +26,4 @@
   * [LINK](https://jose-1122.github.io/AI_Start/Patterns_of_Stars.html) - for
   
 ### [ Kaggle - Project ]
-  * [LINK](https://jose-1122.github.io/AI_Start/Predict_Future_Sales.html) - ]Predict Future Sales] Final project for "How to win a data science competition" Coursera course (dataset-캐글)
+  * [LINK](https://jose-1122.github.io/AI_Start/.html) - [Predict Future Sales] Final project for "How to win a data science competition" Coursera course (dataset-캐글)
