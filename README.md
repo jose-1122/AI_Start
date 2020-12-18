@@ -3,7 +3,7 @@
 ### https://jose-1122.github.io/AI_Start/
     
 ### [ Visualization - Matplotlib, Seaborn, Plotly, Folium ]
-  * [LINK](https://jose-1122.github.io/AI_Start/Income_Kaggle.html) - [T-Academy X KaKr] 성인 인구조사 소득 예측 대회 데이터 시각화 (dataset-캐글) (with Matplotlib, Seaborn)
+  * [LINK](https://jose-1122.github.io/AI_Start/Income.html) - [T-Academy X KaKr] 성인 인구조사 소득 예측 대회 데이터 시각화 (dataset-캐글) (with Matplotlib, Seaborn)
   * [LINK](https://jose-1122.github.io/AI_Start/서울특별시_용산구_공공시설개방정보.html) - [수정필요] 서울특별시_용산구_공공시설개방정보 (dataset-공공데이터포털) (with Plotly)
   * [PDF](https://jose-1122.github.io/AI_Start/plotly.pdf) - [수정 필요] 타이타닉 생존자 데이터 분석 (dataset-캐글) (with Plotly)
   * [LINK](https://jose-1122.github.io/AI_Start/Manchester.html) - 영국 맨체스터 단기 어학연수 중 자주 방문했었던 대표적인 장소 시각화 (with Folium)
