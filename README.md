@@ -2,6 +2,9 @@
 
 ### https://jose-1122.github.io/AI_Start/
     
+### [ Kaggle - Project ]
+  * [LINK](https://jose-1122.github.io/AI_Start/Predict_Future_Sales_2.html) - [Predict Future Sales] Final project for "How to win a data science competition" Coursera course
+
 ### [ Visualization - Matplotlib, Seaborn, Plotly, Folium ]
   * [LINK](https://jose-1122.github.io/AI_Start/Income.html) - [T-Academy X KaKr] 성인 인구조사 소득 예측 대회 데이터 시각화 (dataset-캐글) (with Matplotlib, Seaborn)
   * [LINK](https://jose-1122.github.io/AI_Start/서울특별시_용산구_공공시설개방정보.html) - [수정필요] 서울특별시_용산구_공공시설개방정보 (dataset-공공데이터포털) (with Plotly)
@@ -24,6 +27,3 @@
   * [LINK](https://jose-1122.github.io/AI_Start/GUI_Programming_tkinter.html) - Tkinter
   * [LINK](https://jose-1122.github.io/AI_Start/RPS_Game.html) - Rock Paper Scissors
   * [LINK](https://jose-1122.github.io/AI_Start/Patterns_of_Stars.html) - for
-  
-### [ Kaggle - Project ]
-  * [LINK](https://jose-1122.github.io/AI_Start/Predict_Future_Sales.html) - [Predict Future Sales] Final project for "How to win a data science competition" Coursera course
