@@ -4,7 +4,7 @@
     
 ### [ Kaggle - Project ]
   * [LINK](https://jose-1122.github.io/AI_Start/Predict_Future_Sales_Final.html) - [Predict Future Sales] Final project for "How to win a data science competition" Coursera course
-  * [LINK](https://jose-1122.github.io/AI_Start/Result_1.html) - [Bike Sharing Demand] Forecast use of a city bikeshare system
+  * [LINK](https://jose-1122.github.io/AI_Start/Result_3.html) - [Bike Sharing Demand] Forecast use of a city bikeshare system
   * [LINK](https://jose-1122.github.io/AI_Start/Income.html) - [T-Academy X KaKr] 성인 인구조사 소득 예측 대회 데이터 시각화
   * [PDF](https://jose-1122.github.io/AI_Start/plotly.pdf) - [수정 필요] 타이타닉 생존자 데이터 분석
   
